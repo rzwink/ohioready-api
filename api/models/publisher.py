@@ -1,0 +1,25 @@
+# Create your models here.
+from auditlog.registry import auditlog
+from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
+
+TYPE = [
+    ("PRINT", "State"),
+    ("WEB", "Global"),
+    ("TELEVISION", "National"),
+    ("RADIO", "Local"),
+    ("OFFICIAL", "Official"),
+]
+
+
+class Publisher(models.Model):
+    name = models.TextField()
+    homepage_url = models.URLField()
+    type = models.CharField(max_length=32, choices=TYPE, default=TYPE[0])
+    phone = PhoneNumberField(null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+
+    created_on = models.DateTimeField(auto_now_add=True)
+
+
+auditlog.register(Publisher)
