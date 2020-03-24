@@ -2,17 +2,17 @@ from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from api.models import Coverage
+from api.models import Article
 
 
-class CoverageResource(resources.ModelResource):
+class ArticleResource(resources.ModelResource):
     class Meta:
-        model = Coverage
+        model = Article
         exclude = ("created_on",)
 
 
-class CoverageAdmin(ImportExportModelAdmin):
-    resource_class = CoverageResource
+class ArticleAdmin(ImportExportModelAdmin):
+    resource_class = ArticleResource
     list_display = ["item", "publisher", "url"]
 
     list_filter = [
@@ -20,4 +20,4 @@ class CoverageAdmin(ImportExportModelAdmin):
     ]
 
 
-admin.site.register(Coverage, CoverageAdmin)
+admin.site.register(Article, ArticleAdmin)

@@ -3,10 +3,10 @@ from auditlog.registry import auditlog
 from django.db import models
 
 
-class Coverage(models.Model):
+class Article(models.Model):
     url = models.URLField()
     publisher = models.ForeignKey("Publisher", on_delete=models.SET_NULL, null=True)
-    item = models.ForeignKey("Item", on_delete=models.CASCADE, related_name="coverage")
+    item = models.ForeignKey("Item", on_delete=models.CASCADE, related_name="article")
 
     created_on = models.DateTimeField(auto_now_add=True)
 
@@ -14,4 +14,4 @@ class Coverage(models.Model):
         return f"{self.publisher.name} - {self.url}"
 
 
-auditlog.register(Coverage)
+auditlog.register(Article)

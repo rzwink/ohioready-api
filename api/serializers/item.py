@@ -23,5 +23,5 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
             "authoritative_publisher",
             "authorizer",
             "tags",
-            "coverage",
+            "article",
         ]

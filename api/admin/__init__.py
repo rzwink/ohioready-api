@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
+from .article import ArticleAdmin
 from .authorizer import AuthorizerAdmin
-from .coverage import CoverageAdmin
 from .item import ItemAdmin
 from .publisher import PublisherAdmin
 
