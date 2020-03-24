@@ -1,6 +1,6 @@
 digraph model_graph {
   // Dotfile by Django-Extensions graph_models
-  // Created: 2020-03-24 09:28
+  // Created: 2020-03-24 10:24
   // Cli Options: api
 
   fontname = "Roboto"
@@ -76,6 +76,106 @@ digraph model_graph {
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
     Authorizer
+    </B></FONT></TD></TR>
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto"><B>AutoField</B></FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Roboto">created_on</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Roboto">DateTimeField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto">TextField</FONT>
+    </TD></TR>
+
+
+    </TABLE>
+    >]
+
+  api_models_breakout_Breakout [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
+    Breakout
+    </B></FONT></TD></TR>
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto"><B>AutoField</B></FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto"><B>county</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto"><B>source</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto">as_of</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto">DateField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto">cases</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto">IntegerField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Roboto">created_on</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Roboto">DateTimeField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto">deaths</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto">IntegerField</FONT>
+    </TD></TR>
+
+
+    </TABLE>
+    >]
+
+  api_models_county_County [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
+    County
     </B></FONT></TD></TR>
 
 
@@ -313,6 +413,12 @@ digraph model_graph {
 
   api_models_article_Article -> api_models_event_Event
   [label=" event (article)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  api_models_breakout_Breakout -> api_models_county_County
+  [label=" county (breakout)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  api_models_breakout_Breakout -> api_models_authorizer_Authorizer
+  [label=" source (breakout)"] [arrowhead=none, arrowtail=dot, dir=both];
 
   api_models_event_Event -> api_models_publisher_Publisher
   [label=" authoritative_publisher (event)"] [arrowhead=none, arrowtail=dot, dir=both];
