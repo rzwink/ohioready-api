@@ -13,6 +13,11 @@ class CoverageResource(resources.ModelResource):
 
 class CoverageAdmin(ImportExportModelAdmin):
     resource_class = CoverageResource
+    list_display = ["item", "publisher", "url"]
+
+    list_filter = [
+        "publisher",
+    ]
 
 
 admin.site.register(Coverage, CoverageAdmin)

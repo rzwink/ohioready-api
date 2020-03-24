@@ -11,5 +11,8 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
             "slug",
             "summary",
             "content",
+            "coverage",
+            "authorizer",
             "authoritative_url",
+            "authoritative_publisher",
         ]

@@ -21,6 +21,7 @@ class ItemAdmin(FSMTransitionMixin, ImportExportModelAdmin):
         "title",
         "status",
         "authorizer",
+        "coverage_display",
     ]
     list_filter = ["impact_area", "authorizer", "status"]
     search_fields = [
@@ -38,6 +39,11 @@ class ItemAdmin(FSMTransitionMixin, ImportExportModelAdmin):
         "status",
         "slug",
     ]
+
+    def coverage_display(self, obj):
+        return ", ".join([coverage.publisher.name for coverage in obj.coverage.all()])
+
+    coverage_display.short_description = "Coverage"
 
 
 admin.site.register(Item, ItemAdmin)
