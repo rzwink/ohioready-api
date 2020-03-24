@@ -23,4 +23,4 @@ python manage.py runserver
 1. To access the admin portal open a web browser and go to http://127.0.0.1:8000/admin/
 
 # Entity Relationship Diagram
-![ERD](https://github.com/rzwink/ohioready/raw/master/erd.png "ERD")
+![ERD](https://github.com/rzwink/ohioready-api/raw/master/erd.png "ERD")
