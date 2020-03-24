@@ -55,6 +55,8 @@ class Event(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
+            if len(self.slug) > 255:
+                self.slug = self.slug[0:254]
         super(Event, self).save(*args, **kwargs)
 
     class Meta:
