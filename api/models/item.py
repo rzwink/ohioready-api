@@ -22,7 +22,7 @@ class Item(models.Model):
 
     authoritative_url = models.URLField(null=True, blank=True)
     authoritative_publisher = models.ForeignKey(
-        "Publisher", on_delete=models.SET_NULL, null=True
+        "Publisher", on_delete=models.SET_NULL, null=True, blank=True
     )
 
     authorizer = models.ForeignKey("Authorizer", on_delete=models.SET_NULL, null=True)
@@ -34,7 +34,7 @@ class Item(models.Model):
 
     status = FSMField(default="new")
 
-    published_on = models.DateTimeField()
+    published_on = models.DateField()
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -43,7 +43,7 @@ class Item(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-            super(Item, self).save(*args, **kwargs)
+        super(Item, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ["created_on"]
@@ -59,7 +59,7 @@ class Item(models.Model):
         The return value will be discarded.
         """
 
-    @transition(field=status, source="*", target="destroyed")
+    @transition(field=status, source=["new", "published"], target="destroyed")
     def destroy(self):
         """
         Side effects galore

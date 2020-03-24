@@ -11,6 +11,23 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 import os
 
+
+def get_env_bool(variable_name, default=False):
+    """
+    cast string env variables values to their boolean equivalent
+    """
+    assert isinstance(default, bool), '"default" arg must be bool type'
+
+    value = os.environ.get(variable_name, None)
+    if value is None:
+        return default
+
+    try:
+        return bool(int(value))
+    except ValueError:
+        return value.lower() == "true"
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,11 +55,12 @@ INSTALLED_APPS = [
     "api",
     "taggit",
     "django_fsm",
-    "fsm_admin",
     "django_fsm_log",
     "auditlog",
     "import_export",
+    "fsm_admin",
     "daterange_filter",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -127,3 +145,36 @@ STATICFILES_DIRS = [
 TIME_ZONE = "America/New_York"
 
 PHONENUMBER_DEFAULT_REGION = "US"
+
+REST_FRAMEWORK = {
+    "PAGE_SIZE": 10,
+    "EXCEPTION_HANDLER": "rest_framework_json_api.exceptions.exception_handler",
+    "DEFAULT_PAGINATION_CLASS": "rest_framework_json_api.pagination.JsonApiPageNumberPagination",
+    "DEFAULT_PARSER_CLASSES": (
+        "rest_framework_json_api.parsers.JSONParser",
+        "rest_framework.parsers.FormParser",
+        "rest_framework.parsers.MultiPartParser",
+    ),
+    "DEFAULT_RENDERER_CLASSES": (
+        "rest_framework_json_api.renderers.JSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
+    ),
+    "DEFAULT_METADATA_CLASS": "rest_framework_json_api.metadata.JSONAPIMetadata",
+    "DEFAULT_FILTER_BACKENDS": (
+        "rest_framework_json_api.filters.QueryParameterValidationFilter",
+        "rest_framework_json_api.filters.OrderingFilter",
+        "rest_framework_json_api.django_filters.DjangoFilterBackend",
+        "rest_framework.filters.SearchFilter",
+    ),
+    "SEARCH_PARAM": "filter[search]",
+    "TEST_REQUEST_RENDERER_CLASSES": (
+        "rest_framework_json_api.renderers.JSONRenderer",
+    ),
+    "TEST_REQUEST_DEFAULT_FORMAT": "vnd.api+json",
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
+    ],
+}
+JSON_API_FORMAT_KEYS = "dasherize"
+JSON_API_FORMAT_TYPES = "dasherize"
+JSON_API_PLURALIZE_TYPES = get_env_bool("JSON_API_PLURALIZE_TYPES", True)

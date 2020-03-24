@@ -16,6 +16,11 @@ pre-commit install
 ```
 
 ## Run locally
+Create a file named .env with the following contents in the root directory of the project
+```shell script
+SECRET_KEY = '<---- put 50 character random string here ---->'
+```
+and then run these commands
 ```shell script
 python manage.py migrate
 python manage.py createsuperuser

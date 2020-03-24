@@ -14,15 +14,29 @@ class ItemResource(resources.ModelResource):
 
 class ItemAdmin(FSMTransitionMixin, ImportExportModelAdmin):
     resource_class = ItemResource
+    list_display = [
+        "published_on",
+        "impact_area",
+        "authorizer",
+        "title",
+        "status",
+        "authorizer",
+    ]
+    list_filter = ["impact_area", "authorizer", "status"]
     search_fields = [
         "title",
         "summary",
         "content",
-        "press_release_publisher",
+        "authoritative_publisher",
         "authorizer",
     ]
     fsm_field = [
         "status",
+    ]
+
+    readonly_fields = [
+        "status",
+        "slug",
     ]
 
 
