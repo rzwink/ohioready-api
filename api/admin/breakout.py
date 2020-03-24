@@ -8,7 +8,7 @@ from api.models import Breakout
 class BreakoutResource(resources.ModelResource):
     class Meta:
         model = Breakout
-        exclude = ("created_on",)
+        fields = ("id", "as_of", "county__name", "cases", "deaths", "source__name")
 
 
 class BreakoutAdmin(ImportExportModelAdmin):

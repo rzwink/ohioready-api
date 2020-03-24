@@ -19,7 +19,7 @@ class Breakout(models.Model):
         unique_together = [["county", "as_of"]]
 
     def __str__(self):
-        return self.name
+        return f"{self.as_of} {self.county.name}"
 
 
 auditlog.register(Breakout)

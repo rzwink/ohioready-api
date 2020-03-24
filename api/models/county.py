@@ -3,7 +3,7 @@ from django.db import models
 
 
 class County(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:

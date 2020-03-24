@@ -8,6 +8,7 @@ from api.models import County
 class CountyResource(resources.ModelResource):
     class Meta:
         model = County
+        exclude = ("created_on",)
 
 
 class CountyAdmin(ImportExportModelAdmin):
