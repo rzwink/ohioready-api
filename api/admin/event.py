@@ -4,9 +4,11 @@ from import_export import fields
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from import_export.widgets import ForeignKeyWidget
+from import_export.widgets import ManyToManyWidget
 
 from api.models import Authorizer
 from api.models import Event
+from api.models import Tag
 
 
 class EventResource(resources.ModelResource):
@@ -15,13 +17,27 @@ class EventResource(resources.ModelResource):
         attribute="authorizer",
         widget=ForeignKeyWidget(Authorizer, "name"),
     )
+    tags = fields.Field(
+        column_name="tags",
+        attribute="tags",
+        widget=ManyToManyWidget(Tag, field="name", separator="|"),
+    )
 
     class Meta:
         model = Event
         fields = (
             "id",
             "published_on",
-            "category",
+            "tags",
+            "scope",
+            "authorizer",
+            "title",
+            "authoritative_url",
+        )
+        export_order = (
+            "id",
+            "published_on",
+            "tags",
             "scope",
             "authorizer",
             "title",
@@ -57,7 +73,6 @@ class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
 
     readonly_fields = [
         "status",
-        "slug",
     ]
 
     def article_display(self, obj):

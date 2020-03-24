@@ -11,7 +11,6 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
             "published_on",
             "scope",
             "title",
-            "slug",
             "summary",
             "content",
             "authoritative_url",
