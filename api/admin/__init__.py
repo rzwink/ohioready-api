@@ -5,6 +5,7 @@ from .article import ArticleAdmin
 from .authorizer import AuthorizerAdmin
 from .event import EventAdmin
 from .publisher import PublisherAdmin
+from .tag import Tag
 
 admin.site.site_header = mark_safe("Ohio Ready")
 admin.site.site_title = "Ohio Ready"

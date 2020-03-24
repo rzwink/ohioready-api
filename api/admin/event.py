@@ -14,6 +14,8 @@ class EventResource(resources.ModelResource):
 
 class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
     resource_class = EventResource
+    autocomplete_fields = ["tags"]
+
     list_display = [
         "published_on",
         "impact_area",

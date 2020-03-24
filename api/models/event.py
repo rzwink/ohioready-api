@@ -30,7 +30,7 @@ class Event(models.Model):
         max_length=32, choices=IMPACT_AREA, default=IMPACT_AREA[0]
     )
 
-    tags = TaggableManager()
+    tags = models.ManyToManyField("Tag")
 
     status = FSMField(default="new")
 
