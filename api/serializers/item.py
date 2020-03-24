@@ -3,6 +3,7 @@ from taggit_serializer.serializers import TaggitSerializer
 from taggit_serializer.serializers import TagListSerializerField
 
 from api.models import Item
+from api.serializers import AuthorizerSerializer
 
 
 class ItemSerializer(serializers.HyperlinkedModelSerializer):
@@ -10,6 +11,7 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Item
+
         fields = [
             "published_on",
             "impact_area",

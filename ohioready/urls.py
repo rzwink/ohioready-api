@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import include
 from django.urls import path
 from rest_framework import routers
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.views import TokenRefreshView
+from rest_framework_simplejwt.views import TokenVerifyView
 
 from api import views
 
@@ -31,4 +34,9 @@ urlpatterns = [
     path("v1/", include(router.urls)),
     path("admin/", admin.site.urls),
     url(r"^api-auth/", include("rest_framework.urls")),
+    path("", views.index, name="homepage"),
+    url(r"^favicon.ico", views.go_favicon, name="favicon"),
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
 ]

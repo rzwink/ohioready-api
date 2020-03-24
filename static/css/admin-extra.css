@@ -1,0 +1,96 @@
+#header {
+  background: #000000; /* Old browsers */
+  background: -moz-linear-gradient(left, #000000 0%, #5a00fd 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #000000 0%,#5a00fd 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #000000 0%,#5a00fd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#5a00fd',GradientType=1 ); /* IE6-9 */
+
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+
+}
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.module h2, .module caption, .inline-group h2 {
+  background: #000000; /* Old browsers */
+  background: -moz-linear-gradient(left, #000000 0%, #5a00fd 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #000000 0%,#5a00fd 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #000000 0%,#5a00fd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#5a00fd',GradientType=1 ); /* IE6-9 */
+
+}
+
+div.breadcrumbs {
+  background: #000000; /* Old browsers */
+}
+
+tr.row1.red {
+  background: #f0bebd; /* Old browsers */
+}
+tr.row2.red {
+  background: #ffdad9; /* Old browsers */
+}
+
+tr.row1.green {
+  background: #ddeedc; /* Old browsers */
+}
+tr.row2.green {
+  background: #b4c2b4; /* Old browsers */
+}
+
+#changelist-filter li.selected a {
+    color: #5b80b2;
+    background: #ffcccb;
+}
+
+div.fieldBox.field-sample_note_one label {
+    text-align: right;
+}
+
+div.fieldBox.field-sample_note_two label {
+    text-align: right;
+}
+
+div.fieldBox.field-sample_note_three label {
+    text-align: right;
+}
+
+div.fieldBox.field-sample_note_four label {
+    text-align: right;
+}
+
+div.fieldBox.field-sample_note_five label {
+    text-align: right;
+}
+
+
+
+
+.deletebox {
+  float: left;
+  margin: 0;
+}
+
+#recent-actions-module.module {
+    display: none;
+}
+
+.submit-row input.default.transition-corrections_needed_supervisor,
+.submit-row input.default.transition-assign_to_clinician,
+.submit-row input.default.transition-corrections_needed_clinician {
+  background: red;
+}
+
+.submit-row input.default.transition-no_corrections_needed,
+.submit-row input.default.transition-ready_for_reviewer,
+.submit-row input.default.transition-chart_is_good,
+.submit-row input.default.transition-clinician_mark_as_corrected,
+.submit-row input.default.transition-supervisor_mark_as_corrected {
+  background: green;
+}

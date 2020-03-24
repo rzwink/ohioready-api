@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     "daterange_filter",
     "rest_framework",
     "taggit_serializer",
+    "rest_framework.authtoken",
 ]
 
 MIDDLEWARE = [
@@ -174,6 +175,12 @@ REST_FRAMEWORK = {
     "TEST_REQUEST_DEFAULT_FORMAT": "vnd.api+json",
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
 }
 JSON_API_FORMAT_KEYS = "dasherize"
