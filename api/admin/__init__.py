@@ -3,7 +3,7 @@ from django.utils.safestring import mark_safe
 
 from .article import ArticleAdmin
 from .authorizer import AuthorizerAdmin
-from .breakout import Breakout
+from .case import Case
 from .county import County
 from .event import EventAdmin
 from .publisher import PublisherAdmin

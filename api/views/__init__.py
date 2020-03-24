@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from .article import ArticleViewSet
 from .authorizer import AuthorizerViewSet
-from .breakout import BreakoutViewSet
+from .case import CaseViewSet
 from .county import CountyViewSet
 from .event import EventViewSet
 from .publisher import PublisherViewSet

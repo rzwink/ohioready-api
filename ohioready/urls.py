@@ -31,7 +31,7 @@ router.register(r"authorizer", views.AuthorizerViewSet)
 router.register(r"article", views.ArticleViewSet)
 
 router.register(r"county", views.CountyViewSet)
-router.register(r"breakout", views.BreakoutViewSet)
+router.register(r"case", views.CaseViewSet)
 
 urlpatterns = [
     path("v1/", include(router.urls)),

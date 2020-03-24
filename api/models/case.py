@@ -2,11 +2,10 @@ from auditlog.registry import auditlog
 from django.db import models
 
 
-class Breakout(models.Model):
-    cases = models.IntegerField()
+class Case(models.Model):
+    total = models.IntegerField()
     deaths = models.IntegerField()
     county = models.ForeignKey("County", on_delete=models.CASCADE)
-    source = models.ForeignKey("Authorizer", on_delete=models.CASCADE)
     as_of = models.DateField()
 
     created_on = models.DateTimeField(auto_now_add=True)
@@ -22,4 +21,4 @@ class Breakout(models.Model):
         return f"{self.as_of} {self.county.name}"
 
 
-auditlog.register(Breakout)
+auditlog.register(Case)
