@@ -4,6 +4,7 @@ from django.db import models
 
 class Case(models.Model):
     total = models.IntegerField()
+    recovered = models.IntegerField()
     deaths = models.IntegerField()
     county = models.ForeignKey("County", on_delete=models.CASCADE)
     as_of = models.DateField()
