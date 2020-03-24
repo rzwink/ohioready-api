@@ -46,10 +46,18 @@ class EventResource(resources.ModelResource):
         skip_unchanged = True
 
 
+def publish(modeladmin, request, queryset):
+    for event in queryset:
+        event.publish()
+        event.save()
+
+
 class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
     resource_class = EventResource
     autocomplete_fields = ["tags"]
-
+    actions = [
+        publish,
+    ]
     list_display = [
         "published_on",
         "scope",
