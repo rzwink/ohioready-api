@@ -18,14 +18,14 @@ class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
 
     list_display = [
         "published_on",
-        "impact_area",
+        "scope",
         "authorizer",
         "title",
         "status",
         "authorizer",
         "article_display",
     ]
-    list_filter = ["impact_area", "authorizer", "status"]
+    list_filter = ["scope", "authorizer", "status"]
     search_fields = [
         "title",
         "summary",

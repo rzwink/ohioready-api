@@ -14,7 +14,7 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
 
         fields = [
             "published_on",
-            "impact_area",
+            "scope",
             "title",
             "slug",
             "summary",
