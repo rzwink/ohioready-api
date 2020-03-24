@@ -28,7 +28,7 @@ CATEGORY = [
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.TextField()
     slug = models.SlugField(unique=True, max_length=255)
     summary = models.TextField(null=True, blank=True)
     content = models.TextField(null=True, blank=True)
