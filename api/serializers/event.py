@@ -2,15 +2,15 @@ from rest_framework import serializers
 from taggit_serializer.serializers import TaggitSerializer
 from taggit_serializer.serializers import TagListSerializerField
 
-from api.models import Item
+from api.models import Event
 from api.serializers import AuthorizerSerializer
 
 
-class ItemSerializer(serializers.HyperlinkedModelSerializer):
+class EventSerializer(serializers.HyperlinkedModelSerializer):
     tags = TagListSerializerField()
 
     class Meta:
-        model = Item
+        model = Event
 
         fields = [
             "published_on",
@@ -23,5 +23,5 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
             "authoritative_publisher",
             "authorizer",
             "tags",
-            "coverage",
+            "article",
         ]

@@ -3,17 +3,17 @@ from fsm_admin.mixins import FSMTransitionMixin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from api.models import Item
+from api.models import Event
 
 
-class ItemResource(resources.ModelResource):
+class EventResource(resources.ModelResource):
     class Meta:
-        model = Item
+        model = Event
         exclude = ("created_on",)
 
 
-class ItemAdmin(FSMTransitionMixin, ImportExportModelAdmin):
-    resource_class = ItemResource
+class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
+    resource_class = EventResource
     list_display = [
         "published_on",
         "impact_area",
@@ -21,7 +21,7 @@ class ItemAdmin(FSMTransitionMixin, ImportExportModelAdmin):
         "title",
         "status",
         "authorizer",
-        "coverage_display",
+        "article_display",
     ]
     list_filter = ["impact_area", "authorizer", "status"]
     search_fields = [
@@ -40,10 +40,10 @@ class ItemAdmin(FSMTransitionMixin, ImportExportModelAdmin):
         "slug",
     ]
 
-    def coverage_display(self, obj):
-        return ", ".join([coverage.publisher.name for coverage in obj.coverage.all()])
+    def article_display(self, obj):
+        return ", ".join([article.publisher.name for article in obj.article.all()])
 
-    coverage_display.short_description = "Coverage"
+    article_display.short_description = "Article"
 
 
-admin.site.register(Item, ItemAdmin)
+admin.site.register(Event, EventAdmin)

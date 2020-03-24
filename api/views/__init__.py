@@ -1,9 +1,9 @@
 from django.shortcuts import redirect
 from django.shortcuts import render
 
+from .article import ArticleViewSet
 from .authorizer import AuthorizerViewSet
-from .coverage import CoverageViewSet
-from .item import ItemViewSet
+from .event import EventViewSet
 from .publisher import PublisherViewSet
 
 

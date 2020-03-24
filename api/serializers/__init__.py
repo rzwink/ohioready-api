@@ -1,4 +1,4 @@
+from .article import ArticleSerializer
 from .authorizer import AuthorizerSerializer
-from .coverage import CoverageSerializer
-from .item import ItemSerializer
+from .event import EventSerializer
 from .publisher import PublisherSerializer
