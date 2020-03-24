@@ -7,10 +7,13 @@ from django_fsm import transition
 from taggit.managers import TaggableManager
 
 IMPACT_AREA = [
-    ("STATE", "State"),
     ("GLOBAL", "Global"),
-    ("NATIONAL", "National"),
-    ("LOCAL", "Local"),
+    ("US", "United States"),
+    ("OHIO", "Ohio"),
+    ("COLUMBUS", "Columbus"),
+    ("CLEVELAND", "Cleveland"),
+    ("CINCINNATI", "Cincinnati"),
+    ("DAYTON", "Dayton"),
 ]
 
 
@@ -26,9 +29,7 @@ class Event(models.Model):
     )
 
     authorizer = models.ForeignKey("Authorizer", on_delete=models.SET_NULL, null=True)
-    impact_area = models.CharField(
-        max_length=32, choices=IMPACT_AREA, default=IMPACT_AREA[0]
-    )
+    scope = models.CharField(max_length=32, choices=IMPACT_AREA, default=IMPACT_AREA[0])
 
     tags = models.ManyToManyField("Tag")
 
