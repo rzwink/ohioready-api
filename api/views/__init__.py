@@ -7,6 +7,7 @@ from .case import CaseViewSet
 from .county import CountyViewSet
 from .event import EventViewSet
 from .publisher import PublisherViewSet
+from .tag import TagViewSet
 
 
 def index(request):

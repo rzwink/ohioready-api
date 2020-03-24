@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions",
     "api",
-    "taggit",
     "django_fsm",
     "django_fsm_log",
     "auditlog",
@@ -64,7 +63,6 @@ INSTALLED_APPS = [
     "fsm_admin",
     "daterange_filter",
     "rest_framework",
-    "taggit_serializer",
     "rest_framework.authtoken",
 ]
 

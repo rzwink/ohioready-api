@@ -5,7 +5,6 @@ from django.db import migrations
 class Migration(migrations.Migration):
     atomic = False
     dependencies = [
-        ("taggit", "0003_taggeditem_add_unique_index"),
         ("api", "0002_auto_20200324_0853"),
     ]
 

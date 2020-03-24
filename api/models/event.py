@@ -4,7 +4,6 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django_fsm import FSMField
 from django_fsm import transition
-from taggit.managers import TaggableManager
 
 IMPACT_AREA = [
     ("GLOBAL", "Global"),

@@ -4,3 +4,4 @@ from .case import CaseSerializer
 from .county import CountySerializer
 from .event import EventSerializer
 from .publisher import PublisherSerializer
+from .tag import TagSerializer
