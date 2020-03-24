@@ -25,10 +25,13 @@ from rest_framework_simplejwt.views import TokenVerifyView
 from api import views
 
 router = routers.DefaultRouter()
-router.register(r"events", views.EventViewSet)
+router.register(r"event", views.EventViewSet)
 router.register(r"publisher", views.PublisherViewSet)
 router.register(r"authorizer", views.AuthorizerViewSet)
 router.register(r"article", views.ArticleViewSet)
+
+router.register(r"county", views.CountyViewSet)
+router.register(r"breakout", views.BreakoutViewSet)
 
 urlpatterns = [
     path("v1/", include(router.urls)),
