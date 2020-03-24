@@ -43,10 +43,7 @@ if "PRODUCTION" in os.environ:
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = [
-    "ohioready-api.zwink.net",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = ["ohioready-api.zwink.net", "127.0.0.1", "localhost"]
 
 # Application definition
 
