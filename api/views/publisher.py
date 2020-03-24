@@ -7,7 +7,7 @@ from api.serializers import PublisherSerializer
 
 class PublisherViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows publishers to be viewed or edited.
     """
 
     queryset = Publisher.objects.all().order_by("-created_on")

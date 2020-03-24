@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "fsm_admin",
     "daterange_filter",
     "rest_framework",
+    "taggit_serializer",
 ]
 
 MIDDLEWARE = [

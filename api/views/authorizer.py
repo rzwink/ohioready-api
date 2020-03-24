@@ -7,7 +7,7 @@ from api.serializers import AuthorizerSerializer
 
 class AuthorizerViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows authorizers to be viewed or edited.
     """
 
     queryset = Authorizer.objects.all().order_by("-created_on")

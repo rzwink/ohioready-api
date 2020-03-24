@@ -7,7 +7,7 @@ from api.serializers import CoverageSerializer
 
 class CoverageViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows coverage to be viewed or edited.
     """
 
     queryset = Coverage.objects.all().order_by("-created_on")
