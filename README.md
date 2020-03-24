@@ -1,3 +1,5 @@
+![ERD](https://github.com/rzwink/ohioready-api/raw/master/ohioready_logo.png "ERD")
+
 
 ## Install
 
