@@ -33,7 +33,7 @@ class Event(models.Model):
     summary = models.TextField(null=True, blank=True)
     content = models.TextField(null=True, blank=True)
 
-    authoritative_url = models.URLField(null=True, blank=True)
+    authoritative_url = models.URLField(max_length=1024, null=True, blank=True)
     authoritative_publisher = models.ForeignKey(
         "Publisher", on_delete=models.SET_NULL, null=True, blank=True
     )
