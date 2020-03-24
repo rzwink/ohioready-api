@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from api.models import Article
-from api.models import Item
+from api.models import Event
 from api.models import Publisher
 
 
@@ -11,6 +11,6 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
         fields = [
             "url",
             "publisher",
-            "item",
+            "event",
             "created_on",
         ]

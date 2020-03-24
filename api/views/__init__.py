@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from .article import ArticleViewSet
 from .authorizer import AuthorizerViewSet
-from .item import ItemViewSet
+from .event import EventViewSet
 from .publisher import PublisherViewSet
 
 

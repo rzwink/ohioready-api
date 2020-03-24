@@ -3,17 +3,17 @@ from fsm_admin.mixins import FSMTransitionMixin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from api.models import Item
+from api.models import Event
 
 
-class ItemResource(resources.ModelResource):
+class EventResource(resources.ModelResource):
     class Meta:
-        model = Item
+        model = Event
         exclude = ("created_on",)
 
 
-class ItemAdmin(FSMTransitionMixin, ImportExportModelAdmin):
-    resource_class = ItemResource
+class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
+    resource_class = EventResource
     list_display = [
         "published_on",
         "impact_area",
@@ -46,4 +46,4 @@ class ItemAdmin(FSMTransitionMixin, ImportExportModelAdmin):
     article_display.short_description = "Article"
 
 
-admin.site.register(Item, ItemAdmin)
+admin.site.register(Event, EventAdmin)

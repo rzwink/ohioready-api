@@ -3,7 +3,7 @@ from django.utils.safestring import mark_safe
 
 from .article import ArticleAdmin
 from .authorizer import AuthorizerAdmin
-from .item import ItemAdmin
+from .event import EventAdmin
 from .publisher import PublisherAdmin
 
 admin.site.site_header = mark_safe("Ohio Ready")

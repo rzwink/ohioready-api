@@ -25,7 +25,7 @@ from rest_framework_simplejwt.views import TokenVerifyView
 from api import views
 
 router = routers.DefaultRouter()
-router.register(r"items", views.ItemViewSet)
+router.register(r"events", views.EventViewSet)
 router.register(r"publisher", views.PublisherViewSet)
 router.register(r"authorizer", views.AuthorizerViewSet)
 router.register(r"article", views.ArticleViewSet)

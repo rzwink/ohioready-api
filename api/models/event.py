@@ -14,7 +14,7 @@ IMPACT_AREA = [
 ]
 
 
-class Item(models.Model):
+class Event(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, max_length=255)
     summary = models.TextField(null=True, blank=True)
@@ -43,7 +43,7 @@ class Item(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        super(Item, self).save(*args, **kwargs)
+        super(Event, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ["created_on"]
@@ -66,4 +66,4 @@ class Item(models.Model):
         """
 
 
-auditlog.register(Item)
+auditlog.register(Event)

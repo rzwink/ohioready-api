@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api.models import Item
+from api.models import Event
 from api.models import Publisher
 
 

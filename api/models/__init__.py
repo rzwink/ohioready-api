@@ -1,4 +1,4 @@
 from .article import Article
 from .authorizer import Authorizer
-from .item import Item
+from .event import Event
 from .publisher import Publisher
