@@ -1,5 +1,8 @@
 from rest_framework import permissions
 from rest_framework import viewsets
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.authentication import TokenAuthentication
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from api.models import Case
 from api.serializers import CaseSerializer
@@ -13,3 +16,8 @@ class CaseViewSet(viewsets.ModelViewSet):
     queryset = Case.objects.all()
     serializer_class = CaseSerializer
     permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = (
+        TokenAuthentication,
+        SessionAuthentication,
+        JWTAuthentication,
+    )
