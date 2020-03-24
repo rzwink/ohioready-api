@@ -1,15 +1,33 @@
 from django.contrib import admin
 from fsm_admin.mixins import FSMTransitionMixin
+from import_export import fields
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
+from import_export.widgets import ForeignKeyWidget
 
+from api.models import Authorizer
 from api.models import Event
 
 
 class EventResource(resources.ModelResource):
+    authorizer = fields.Field(
+        column_name="authorizer",
+        attribute="authorizer",
+        widget=ForeignKeyWidget(Authorizer, "name"),
+    )
+
     class Meta:
         model = Event
-        exclude = ("created_on",)
+        fields = (
+            "id",
+            "published_on",
+            "category",
+            "scope",
+            "authorizer",
+            "title",
+            "authoritative_url",
+        )
+        skip_unchanged = True
 
 
 class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
