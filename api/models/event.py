@@ -7,7 +7,7 @@ from django_fsm import transition
 IMPACT_AREA = [
     ("Global", "Global"),
     ("National", "National"),
-    ("Ohio", "Ohio"),
+    ("State", "State"),
     ("Columbus", "Columbus"),
     ("Cleveland", "Cleveland"),
     ("Cincinnati", "Cincinnati"),
