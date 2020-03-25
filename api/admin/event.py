@@ -1,4 +1,7 @@
+import urllib
+
 from django.contrib import admin
+from django.utils.html import format_html
 from fsm_admin.mixins import FSMTransitionMixin
 from import_export import fields
 from import_export import resources
@@ -52,18 +55,23 @@ def publish(modeladmin, request, queryset):
         event.save()
 
 
+def clean_url(modeladmin, request, queryset):
+    for event in queryset:
+        event.authoritative_url = urllib.parse.splitquery(event.authoritative_url)[0]
+        event.save()
+
+
 class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
     resource_class = EventResource
     autocomplete_fields = ["tags"]
-    actions = [
-        publish,
-    ]
+    actions = [publish, clean_url]
     list_display = [
         "published_on",
+        "status",
         "scope",
         "authorizer",
         "title",
-        "status",
+        "_authoritative_url",
         "authorizer",
         "article_display",
     ]
@@ -85,6 +93,16 @@ class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
 
     def article_display(self, obj):
         return ", ".join([article.publisher.name for article in obj.article.all()])
+
+    def _authoritative_url(self, obj):
+        color = "purple"
+        if len(obj.authoritative_url) == 0:
+            color = "red"
+        return format_html(
+            u'<a href="{}"><i class="fas fa-file" style="color: {}" title="Click to view URL"></i></a>',
+            obj.authoritative_url,
+            color,
+        )
 
     article_display.short_description = "Article"
 
