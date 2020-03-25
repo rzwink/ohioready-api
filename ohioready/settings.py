@@ -65,9 +65,11 @@ INSTALLED_APPS = [
     "daterange_filter",
     "rest_framework",
     "rest_framework.authtoken",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -199,3 +201,9 @@ REST_FRAMEWORK = {
 JSON_API_FORMAT_KEYS = "dasherize"
 JSON_API_FORMAT_TYPES = "dasherize"
 JSON_API_PLURALIZE_TYPES = get_env_bool("JSON_API_PLURALIZE_TYPES", True)
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+# CORS_ORIGIN_WHITELIST = (
+#     'http//:localhost:8000',
+# )
