@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "api",
     "django_fsm",
     "django_fsm_log",
+    "django_filters",
     "auditlog",
     "import_export",
     "fsm_admin",
