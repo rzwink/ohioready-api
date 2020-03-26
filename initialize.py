@@ -11,9 +11,14 @@ django.setup()
 from django.contrib.auth import get_user_model  # noqa
 from django.contrib.auth.models import Group  # noqa
 
-from api.models import Publisher, Authorizer
+from api.models import Publisher, Authorizer, Event
 
 INITIALIZE = os.environ.get("INITIALIZE", False)
+
+for event in Event.objects.all():
+    event.media_type = "www"
+    event.save()
+
 
 if INITIALIZE:
     print("Initializing")
