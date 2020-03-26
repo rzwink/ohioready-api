@@ -83,7 +83,6 @@ class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
         "title",
         "summary",
         "content",
-        "authoritative_publisher",
         "authorizer",
     ]
     fsm_field = [

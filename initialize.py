@@ -15,11 +15,6 @@ from api.models import Publisher, Authorizer, Event
 
 INITIALIZE = os.environ.get("INITIALIZE", False)
 
-for event in Event.objects.all():
-    event.media_type = "www"
-    event.save()
-
-
 if INITIALIZE:
     print("Initializing")
     User = get_user_model()

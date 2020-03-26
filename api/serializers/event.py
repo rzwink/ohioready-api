@@ -19,7 +19,6 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
             "summary",
             "content",
             "authoritative_url",
-            "authoritative_publisher",
             "authorizer",
             "tags",
             "article",

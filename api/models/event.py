@@ -31,9 +31,7 @@ class Event(models.Model):
     content = models.TextField(null=True, blank=True)
 
     authoritative_url = models.URLField(max_length=1024, null=True, blank=True)
-    authoritative_publisher = models.ForeignKey(
-        "Publisher", on_delete=models.SET_NULL, null=True, blank=True
-    )
+
     media_type = models.CharField(
         max_length=20, choices=MEDIA_TYPE, default=MEDIA_TYPE[0][0]
     )
