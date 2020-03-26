@@ -17,7 +17,7 @@ class Article(models.Model):
     publisher = models.ForeignKey("Publisher", on_delete=models.SET_NULL, null=True)
     event = models.ForeignKey("Event", on_delete=models.CASCADE, related_name="article")
     media_type = models.CharField(
-        max_length=20, choices=MEDIA_TYPE, default=MEDIA_TYPE[0]
+        max_length=20, choices=MEDIA_TYPE, default=MEDIA_TYPE[0][0]
     )
 
     created_on = models.DateTimeField(auto_now_add=True)

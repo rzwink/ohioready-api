@@ -35,10 +35,12 @@ class Event(models.Model):
         "Publisher", on_delete=models.SET_NULL, null=True, blank=True
     )
     media_type = models.CharField(
-        max_length=20, choices=MEDIA_TYPE, default=MEDIA_TYPE[0]
+        max_length=20, choices=MEDIA_TYPE, default=MEDIA_TYPE[0][0]
     )
     authorizer = models.ForeignKey("Authorizer", on_delete=models.SET_NULL, null=True)
-    scope = models.CharField(max_length=32, choices=IMPACT_AREA, default=IMPACT_AREA[0])
+    scope = models.CharField(
+        max_length=32, choices=IMPACT_AREA, default=IMPACT_AREA[0][0]
+    )
 
     tags = models.ManyToManyField("Tag")
 
