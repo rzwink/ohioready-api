@@ -9,6 +9,7 @@ from import_export.admin import ImportExportModelAdmin
 from import_export.widgets import ForeignKeyWidget
 from import_export.widgets import ManyToManyWidget
 
+from api.models import Article
 from api.models import Authorizer
 from api.models import Event
 from api.models import Tag
@@ -63,7 +64,15 @@ def clean_url(modeladmin, request, queryset):
         event.save()
 
 
+class ArticleInline(admin.TabularInline):
+    model = Article
+
+
 class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
+    inlines = [
+        ArticleInline,
+    ]
+
     resource_class = EventResource
     autocomplete_fields = ["tags"]
     actions = [publish, clean_url]
