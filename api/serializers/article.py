@@ -12,5 +12,6 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
             "url",
             "publisher",
             "event",
+            "media_type",
             "created_on",
         ]

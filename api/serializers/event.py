@@ -23,4 +23,5 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
             "authorizer",
             "tags",
             "article",
+            "media_type",
         ]

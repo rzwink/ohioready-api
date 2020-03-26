@@ -36,6 +36,7 @@ class EventResource(resources.ModelResource):
             "authorizer",
             "title",
             "authoritative_url",
+            "media_type",
         )
         export_order = (
             "id",
@@ -45,6 +46,7 @@ class EventResource(resources.ModelResource):
             "authorizer",
             "title",
             "authoritative_url",
+            "media_type",
         )
         skip_unchanged = True
 
@@ -74,6 +76,7 @@ class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
         "_authoritative_url",
         "authorizer",
         "article_display",
+        "media_type",
     ]
     list_filter = ["scope", "authorizer", "status"]
     search_fields = [

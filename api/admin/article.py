@@ -13,11 +13,9 @@ class ArticleResource(resources.ModelResource):
 
 class ArticleAdmin(ImportExportModelAdmin):
     resource_class = ArticleResource
-    list_display = ["event", "publisher", "url"]
+    list_display = ["event", "publisher", "url", "media_type"]
 
-    list_filter = [
-        "publisher",
-    ]
+    list_filter = ["publisher", "media_type"]
 
 
 admin.site.register(Article, ArticleAdmin)

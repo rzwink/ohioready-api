@@ -28,5 +28,6 @@ class EventViewSet(viewsets.ModelViewSet):
         "tags",
         "authorizer__name",
         "authoritative_publisher__name",
+        "media_type",
     ]
     search_fields = ["summary", "content", "title"]
