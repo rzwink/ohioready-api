@@ -40,7 +40,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 if "PRODUCTION" in os.environ:
     DEBUG = False
-    SECURE_SSL_REDIRECT = True
+    # SECURE_SSL_REDIRECT = True
 else:
     DEBUG = True
 
