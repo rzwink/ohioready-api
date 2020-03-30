@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .article import ArticleViewSet
 from .authorizer import AuthorizerViewSet
 from .case import CaseViewSet
+from .case_summary import CaseSummaryViewSet
 from .county import CountyViewSet
 from .event import EventViewSet
 from .publisher import PublisherViewSet

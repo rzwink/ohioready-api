@@ -33,6 +33,7 @@ router.register(r"article", views.ArticleViewSet)
 
 router.register(r"county", views.CountyViewSet)
 router.register(r"case", views.CaseViewSet)
+router.register(r"case_summary", views.CaseSummaryViewSet)
 router.register(r"tag", views.TagViewSet)
 
 urlpatterns = [
