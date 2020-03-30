@@ -6,7 +6,6 @@ from rest_framework.authentication import SessionAuthentication
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 from rest_framework_json_api.django_filters import DjangoFilterBackend
-from rest_framework_json_api.renderers import JSONRenderer
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from api.models import Case
