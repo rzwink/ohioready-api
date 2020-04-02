@@ -70,5 +70,13 @@ class Event(models.Model):
         Side effects galore
         """
 
+    @transition(field=status, source="published", target="new")
+    def unpublish(self):
+        """
+        This function may contain side-effects,
+        like updating caches, notifying users, etc.
+        The return value will be discarded.
+        """
+
 
 auditlog.register(Event)
