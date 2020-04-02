@@ -6,6 +6,10 @@ from api.models import Publisher
 
 
 class ArticleSerializer(serializers.HyperlinkedModelSerializer):
+    included_serializers = {
+        "publisher": "api.serializers.PublisherSerializer",
+    }
+
     class Meta:
         model = Article
         fields = [
