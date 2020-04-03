@@ -208,6 +208,9 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
 }
+
+REST_FRAMEWORK_EXTENSIONS = {"DEFAULT_CACHE_RESPONSE_TIMEOUT": 60}
+
 JSON_API_FORMAT_KEYS = "dasherize"
 JSON_API_FORMAT_TYPES = "dasherize"
 JSON_API_PLURALIZE_TYPES = get_env_bool("JSON_API_PLURALIZE_TYPES", True)

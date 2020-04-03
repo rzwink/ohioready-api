@@ -3,6 +3,7 @@ from rest_framework import permissions
 from rest_framework import viewsets
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.authentication import TokenAuthentication
+from rest_framework_extensions.cache.decorators import cache_response
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from api.models import Event
@@ -30,3 +31,7 @@ class EventViewSet(viewsets.ModelViewSet):
         "media_type",
     ]
     search_fields = ["summary", "content", "title"]
+
+    @cache_response()
+    def get(self, request, *args, **kwargs):
+        super(EventViewSet, self).get(request, *args, **kwargs)

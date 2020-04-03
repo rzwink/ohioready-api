@@ -1,7 +1,8 @@
 from rest_framework import permissions
-from rest_framework import viewsets
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.authentication import TokenAuthentication
+from rest_framework_extensions.cache.decorators import cache_response
+from rest_framework_json_api import views
 from rest_framework_json_api.django_filters import DjangoFilterBackend
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
@@ -9,7 +10,7 @@ from api.models import Case
 from api.serializers import CaseSerializer
 
 
-class CaseViewSet(viewsets.ModelViewSet):
+class CaseViewSet(views.ModelViewSet):
     """
     API endpoint that allows article to be viewed or edited.
     """
@@ -27,3 +28,7 @@ class CaseViewSet(viewsets.ModelViewSet):
         "county__name",
         "as_of",
     ]
+
+    @cache_response()
+    def get(self, request, *args, **kwargs):
+        super(CaseViewSet, self).get(request, *args, **kwargs)
