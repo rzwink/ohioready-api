@@ -23,7 +23,10 @@ class Article(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.publisher.name} - {self.url}"
+        if hasattr(self.publisher, "name"):
+            return f"{self.publisher.name} - {self.url}"
+        else:
+            return self.url
 
 
 auditlog.register(Article)

@@ -83,9 +83,6 @@ class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
         "authorizer",
         "title",
         "_authoritative_url",
-        "authorizer",
-        "article_display",
-        "media_type",
     ]
     list_filter = ["scope", "authorizer", "status"]
     search_fields = [
@@ -102,9 +99,6 @@ class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
         "status",
     ]
 
-    def article_display(self, obj):
-        return ", ".join([article.publisher.name for article in obj.article.all()])
-
     def _authoritative_url(self, obj):
         color = "purple"
         if len(obj.authoritative_url) == 0:
@@ -114,8 +108,6 @@ class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
             obj.authoritative_url,
             color,
         )
-
-    article_display.short_description = "Article"
 
 
 admin.site.register(Event, EventAdmin)
