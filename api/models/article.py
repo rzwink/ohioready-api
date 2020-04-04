@@ -28,5 +28,8 @@ class Article(models.Model):
         else:
             return self.url
 
+    class Meta:
+        ordering = ["-created_on"]
+
 
 auditlog.register(Article)

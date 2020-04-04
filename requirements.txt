@@ -51,3 +51,4 @@ django-health-check==3.12.1
 psutil==5.7.0
 drf-aggregates==0.0.12
 drf-extensions==0.6.0
+django-auto-prefetching==0.1.8

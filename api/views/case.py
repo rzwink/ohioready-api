@@ -1,3 +1,4 @@
+from django_auto_prefetching import AutoPrefetchViewSetMixin
 from rest_framework import permissions
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.authentication import TokenAuthentication
@@ -10,7 +11,7 @@ from api.models import Case
 from api.serializers import CaseSerializer
 
 
-class CaseViewSet(views.ModelViewSet):
+class CaseViewSet(AutoPrefetchViewSetMixin, views.ModelViewSet):
     """
     API endpoint that allows article to be viewed or edited.
     """

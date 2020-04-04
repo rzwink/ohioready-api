@@ -1,3 +1,4 @@
+from django_auto_prefetching import AutoPrefetchViewSetMixin
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import permissions
 from rest_framework import viewsets
@@ -10,7 +11,7 @@ from api.models import Event
 from api.serializers import EventSerializer
 
 
-class EventViewSet(viewsets.ModelViewSet):
+class EventViewSet(AutoPrefetchViewSetMixin, viewsets.ModelViewSet):
     """
     API endpoint that allows events to be viewed or edited.
     """
