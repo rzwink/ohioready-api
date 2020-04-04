@@ -69,6 +69,8 @@ class ArticleInline(admin.TabularInline):
 
 
 class EventAdmin(FSMTransitionMixin, ImportExportModelAdmin):
+    change_form_template = "admin/api/event/change_form.html"
+
     inlines = [
         ArticleInline,
     ]

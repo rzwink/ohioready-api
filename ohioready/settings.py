@@ -50,6 +50,7 @@ ALLOWED_HOSTS = ["ohioready-api.zwink.net", "127.0.0.1", "localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    "api.apps.ApiConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -57,7 +58,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
-    "api",
     "django_fsm",
     "django_fsm_log",
     "django_filters",
