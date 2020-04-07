@@ -29,7 +29,7 @@ class Article(models.Model):
             return self.url
 
     class Meta:
-        ordering = ["-created_on"]
+        ordering = ["-created_on", "id"]
 
 
 auditlog.register(Article)

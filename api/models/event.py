@@ -51,7 +51,7 @@ class Event(models.Model):
         return self.title
 
     class Meta:
-        ordering = ["-published_on"]
+        ordering = ["-published_on", "id"]
 
         def __unicode__(self):
             return self.title
