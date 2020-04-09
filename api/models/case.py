@@ -13,8 +13,9 @@ class Case(models.Model):
 
     class Meta:
         ordering = [
-            "as_of",
+            "-as_of",
             "county__name",
+            "id",
         ]
         unique_together = [["county", "as_of"]]
 

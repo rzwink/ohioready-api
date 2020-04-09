@@ -13,7 +13,12 @@ class ArticleResource(resources.ModelResource):
 
 class ArticleAdmin(ImportExportModelAdmin):
     resource_class = ArticleResource
-    list_display = ["event", "publisher", "url", "media_type"]
+    list_display = [
+        "formatted_event_title",
+        "publisher",
+        "url",
+        "media_type",
+    ]
 
     list_filter = ["publisher", "media_type"]
 

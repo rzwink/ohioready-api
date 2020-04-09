@@ -7,7 +7,7 @@ class County(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["name", "id"]
         verbose_name_plural = "counties"
 
     def __str__(self):

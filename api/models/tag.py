@@ -9,7 +9,7 @@ class Tag(models.Model):
         return self.name
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["name", "id"]
 
 
 auditlog.register(Tag)

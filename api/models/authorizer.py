@@ -10,5 +10,8 @@ class Authorizer(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ["name", "id"]
+
 
 auditlog.register(Authorizer)

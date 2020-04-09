@@ -78,5 +78,12 @@ class Event(models.Model):
         The return value will be discarded.
         """
 
+    @property
+    def formatted_title(self):
+        if self.title:
+            if len(self.title) > 16:
+                return self.title[0:13] + "..."
+        return self.title
+
 
 auditlog.register(Event)

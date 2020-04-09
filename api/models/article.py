@@ -31,5 +31,12 @@ class Article(models.Model):
     class Meta:
         ordering = ["-created_on", "id"]
 
+    @property
+    def formatted_event_title(self):
+        if self.event.title:
+            if len(self.event.title) > 35:
+                return self.event.title[0:33] + "..."
+        return self.event.title
+
 
 auditlog.register(Article)
