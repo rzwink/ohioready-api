@@ -8,6 +8,7 @@ from .case_summary import CaseSummaryViewSet
 from .county import CountyViewSet
 from .event import EventViewSet
 from .publisher import PublisherViewSet
+from .screenshot import get_screenshot
 from .tag import TagViewSet
 
 

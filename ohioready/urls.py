@@ -38,6 +38,7 @@ router.register(r"tag", views.TagViewSet)
 
 urlpatterns = [
     path("v1/", include(router.urls)),
+    path("screenshot", views.get_screenshot, name="get_screenshot"),
     path("admin/", admin.site.urls),
     url(r"^api-auth/", include("rest_framework.urls")),
     path("", views.index, name="homepage"),
