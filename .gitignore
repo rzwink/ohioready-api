@@ -7,6 +7,7 @@ staticfiles
 *.so
 db.sqlite3
 # Distribution / packaging
+chromedriver.exe
 www
 .Python
 build/

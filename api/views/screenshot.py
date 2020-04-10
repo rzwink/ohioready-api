@@ -3,8 +3,12 @@ import os
 import tempfile
 from time import time
 
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
 from django.http import HttpResponse
 from selenium import webdriver
+
+from api.models import Screenshot
 
 
 def get_screenshot(request):
@@ -27,51 +31,36 @@ def get_screenshot(request):
             h.update(str(height).encode("utf-8"))
 
             img_name = h.hexdigest() + ".png"
-            img_dir = tempfile.gettempdir() + "/screenshots"
 
-            full_img_path = os.path.join(img_dir, img_name)
+            screenshot, created = Screenshot.objects.get_or_create(name=img_name)
 
-            if not os.path.exists(img_dir):
-                os.makedirs(img_dir)
+            if not created and screenshot.file:
 
-            [
-                os.remove(file)
-                for file in (
-                    os.path.join(path, file)
-                    for path, _, files in os.walk(img_dir)
-                    for file in files
-                )
-                if os.stat(file).st_mtime < time() - (60 * 60)
-            ]
-
-            if os.path.isfile(full_img_path):
                 response = HttpResponse(content_type="image/png")
-
-                with open(full_img_path, mode="rb") as file:
-                    response.write(file.read())
+                response.write(screenshot.file.read())
 
                 return response
 
-            else:
-                chrome_options = webdriver.ChromeOptions()
-                chrome_options.add_argument("--headless")
-                chrome_options.add_argument("--no-sandbox")
-                chrome_options.add_argument("--disable-dev-shm-usage")
+            chrome_options = webdriver.ChromeOptions()
+            chrome_options.add_argument("--headless")
+            chrome_options.add_argument("--no-sandbox")
+            chrome_options.add_argument("--disable-dev-shm-usage")
 
-                driver = webdriver.Chrome("chromedriver", chrome_options=chrome_options)
+            driver = webdriver.Chrome("chromedriver", chrome_options=chrome_options)
 
-                driver.get(url)
+            driver.get(url)
 
-                driver.set_window_size(width, height)
+            driver.set_window_size(width, height)
 
-                screenshot_img = driver.get_screenshot_as_png()
-                driver.save_screenshot(full_img_path)
+            png = driver.get_screenshot_as_png()
+            screenshot.file.save(name=img_name, content=ContentFile(png))
+            screenshot.save()
 
-                driver.quit()
+            driver.quit()
 
-                response = HttpResponse(content_type="image/png")
-                response.write(screenshot_img)
+            response = HttpResponse(content_type="image/png")
+            response.write(png)
 
-                return response
+            return response
 
     return HttpResponse("needs ?url=<url> and optional &w=300&h=100")
