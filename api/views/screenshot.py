@@ -9,6 +9,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 
 
 def get_screenshot(request):
@@ -57,7 +58,7 @@ def get_screenshot(request):
                 return response
 
             else:
-                driver = webdriver.Chrome(ChromeDriverManager().install())
+                driver = webdriver.Firefox(GeckoDriverManager().install(),)
                 driver.get(url)
 
                 driver.set_window_size(width, height)
