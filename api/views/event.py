@@ -4,6 +4,7 @@ from rest_framework import permissions
 from rest_framework import viewsets
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.filters import SearchFilter
 from rest_framework_extensions.cache.decorators import cache_response
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
@@ -24,7 +25,7 @@ class EventViewSet(AutoPrefetchViewSetMixin, viewsets.ModelViewSet):
         SessionAuthentication,
         JWTAuthentication,
     )
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = [
         "scope",
         "tags",
