@@ -3,6 +3,7 @@ import os
 import tempfile
 import urllib.parse as urlparse
 from datetime import datetime
+from time import time
 
 from django.conf import settings
 from django.http import HttpResponse
@@ -30,9 +31,22 @@ def get_screenshot(request):
             h.update(str(height).encode("utf-8"))
 
             img_name = h.hexdigest() + ".png"
-            img_dir = tempfile.gettempdir()
+            img_dir = tempfile.gettempdir() + "/screenshots"
 
             full_img_path = os.path.join(img_dir, img_name)
+
+            if not os.path.exists(img_dir):
+                os.makedirs(img_dir)
+
+            [
+                os.remove(file)
+                for file in (
+                    os.path.join(path, file)
+                    for path, _, files in os.walk(img_dir)
+                    for file in files
+                )
+                if os.stat(file).st_mtime < time() - (60 * 60)
+            ]
 
             if os.path.isfile(full_img_path):
                 response = HttpResponse(content_type="image/png")
