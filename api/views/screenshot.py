@@ -1,14 +1,10 @@
 import hashlib
 import os
 import tempfile
-import urllib.parse as urlparse
-from datetime import datetime
 from time import time
 
-from django.conf import settings
 from django.http import HttpResponse
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 def get_screenshot(request):
