@@ -26,5 +26,9 @@ class Publisher(models.Model):
     class Meta:
         ordering = ["name", "id"]
 
+    @property
+    def popularity(self):
+        return self.articles.count()
+
 
 auditlog.register(Publisher)

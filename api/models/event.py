@@ -40,7 +40,7 @@ class Event(models.Model):
         max_length=32, choices=IMPACT_AREA, default=IMPACT_AREA[0][0]
     )
 
-    tags = models.ManyToManyField("Tag")
+    tags = models.ManyToManyField("Tag", related_name="events")
 
     status = FSMField(default="new")
 

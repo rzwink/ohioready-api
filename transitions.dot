@@ -1,0 +1,14 @@
+digraph {
+	subgraph cluster_api_Event_status {
+		graph [label="api.Event.status"]
+		"api.event.status.destroyed" [label=destroyed shape=doublecircle]
+		"api.event.status.new" [label=new shape=circle]
+		"api.event.status._initial" [label="" shape=point]
+		"api.event.status._initial" -> "api.event.status.new"
+		"api.event.status.published" [label=published shape=circle]
+		"api.event.status.published" -> "api.event.status.destroyed" [label=destroy]
+		"api.event.status.published" -> "api.event.status.new" [label=unpublish]
+		"api.event.status.new" -> "api.event.status.destroyed" [label=destroy]
+		"api.event.status.new" -> "api.event.status.published" [label=publish]
+	}
+}

@@ -14,7 +14,9 @@ MEDIA_TYPE = [
 
 class Article(models.Model):
     url = models.URLField()
-    publisher = models.ForeignKey("Publisher", on_delete=models.SET_NULL, null=True)
+    publisher = models.ForeignKey(
+        "Publisher", on_delete=models.SET_NULL, null=True, related_name="articles"
+    )
     event = models.ForeignKey("Event", on_delete=models.CASCADE, related_name="article")
     media_type = models.CharField(
         max_length=20, choices=MEDIA_TYPE, default=MEDIA_TYPE[0][0]

@@ -11,5 +11,9 @@ class Tag(models.Model):
     class Meta:
         ordering = ["name", "id"]
 
+    @property
+    def popularity(self):
+        return self.events.count()
+
 
 auditlog.register(Tag)

@@ -63,4 +63,5 @@ curl \
 ```
 
 # Entity Relationship Diagram
-![ERD](https://github.com/rzwink/ohioready-api/raw/master/erd.png "ERD")
+![ERD](erd.png "ERD")
+![Transitions](transitions.png "ERD")

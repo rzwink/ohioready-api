@@ -12,4 +12,5 @@ class PublisherSerializer(serializers.HyperlinkedModelSerializer):
             "type",
             "phone",
             "email",
+            "popularity",
         ]
