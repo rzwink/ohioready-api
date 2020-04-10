@@ -57,7 +57,7 @@ def get_screenshot(request):
                 return response
 
             else:
-                driver = webdriver.Chrome(ChromeDriverManager().install(),)
+                driver = webdriver.Chrome("chromedriver")
                 driver.get(url)
 
                 driver.set_window_size(width, height)
