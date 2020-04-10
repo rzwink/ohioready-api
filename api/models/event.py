@@ -35,7 +35,9 @@ class Event(models.Model):
     media_type = models.CharField(
         max_length=20, choices=MEDIA_TYPE, default=MEDIA_TYPE[0][0]
     )
-    authorizer = models.ForeignKey("Authorizer", on_delete=models.SET_NULL, null=True)
+    authorizer = models.ForeignKey(
+        "Authorizer", on_delete=models.SET_NULL, null=True, related_name="events"
+    )
     scope = models.CharField(
         max_length=32, choices=IMPACT_AREA, default=IMPACT_AREA[0][0]
     )
