@@ -56,3 +56,4 @@ selenium==3.141.0
 webdriver-manager==2.3.0
 django-storages==1.9.1
 boto3==1.12.32
+django-taggit==1.2.0
