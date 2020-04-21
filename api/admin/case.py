@@ -18,6 +18,7 @@ class CaseResource(resources.ModelResource):
     class Meta:
         model = Case
         skip_unchanged = True
+        import_id_fields = ("county", "as_of")
         fields = ("id", "as_of", "county", "total", "deaths", "recovered", "county_id")
         export_order = (
             "id",
