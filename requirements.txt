@@ -18,7 +18,7 @@ django-fsm-log==1.6.2
 django-import-export==2.0.2
 django-jsonfield==1.4.0
 django-phonenumber-field==4.0.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 djangorestframework-jsonapi==3.1.0
 djangorestframework-simplejwt==4.4.0
 django-cors-headers==3.2.1
